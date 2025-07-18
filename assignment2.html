@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: transparent; 
+    }
+
+    .form-container {
+      width: 300px;
+      margin: 60px auto;
+      padding: 20px;
+      background-color: #dbeeff; 
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .social-icons {
+      margin: 10px 0;
+    }
+
+    .icon-box {
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 6px 8px;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+      background-color: #fff;
+    }
+
+    .icon-box:hover {
+      box-shadow: 0 0 6px rgba(0,0,0,0.15);
+    }
+
+    .icon-box img {
+      width: 25px;
+      height: 25px;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4169e1; /* Royal blue button */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #2d54b5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>CREATE ACCOUNT</h2>
+
+    <div class="social-icons">
+      <div class="icon-box">
+        <img src="https://www.pngall.com/wp-content/uploads/5/Google-G-Logo-PNG-Image.png" alt="Google G">
+      </div>
+      <div class="icon-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook F">
+      </div>
+    </div>
+
+    <p style="margin-bottom: 20px;">or use your email for registration</p>
+
+    <form action="/submit_registration" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+
+      <button type="submit">SIGN UP</button>
+    </form>
+  </div>
+
+</body>
+</html>

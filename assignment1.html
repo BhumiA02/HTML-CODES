@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Survey Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 30px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #0d74be; 
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 2px solid #d54343;
+      background-color: #fff;
+    }
+    .radio-group, .checkbox-group {
+      margin-top: 10px;
+      color: #f0f0f0;
+    }
+    .radio-group label,
+    .checkbox-group label {
+      font-weight: normal;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="radio"],
+    input[type="checkbox"] {
+      accent-color: #0d6535;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #004280c3;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      color:black;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Survey Form</h2>
+    <form>
+
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="age">Age:</label>
+      <input type="text" id="age" name="age">
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address">
+
+      <label>Gender:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gender" value="male" required> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+        <label><input type="radio" name="gender" value="other"> Other</label>
+      </div>
+
+      <label>Education Level:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="education" value="highschool"> High School</label>
+        <label><input type="radio" name="education" value="bachelor"> Bachelor's Degree</label>
+        <label><input type="radio" name="education" value="master"> Master's Degree</label>
+        <label><input type="radio" name="education" value="other"> Other</label>
+      </div>
+
+      <label>Skills:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="skills" value="html"> HTML</label>
+        <label><input type="checkbox" name="skills" value="css"> CSS</label>
+        <label><input type="checkbox" name="skills" value="javascript"> JavaScript</label>
+        <label><input type="checkbox" name="skills" value="python"> Python</label>
+      </div>
+
+      <label>Interests:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="interests" value="reading"> Reading</label>
+        <label><input type="checkbox" name="interests" value="traveling"> Traveling</label>
+        <label><input type="checkbox" name="interests" value="music"> Music</label>
+        <label><input type="checkbox" name="interests" value="sports"> Sports</label>
+      </div>
+
+      <label for="comments">Additional Comments:</label>
+      <textarea id="comments" name="comments" rows="4" placeholder="Write something here..."></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>
