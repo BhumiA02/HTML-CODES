@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weight Converter</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: none;
+    }
+    .converter-box {
+      background-color: #EEE8F4; 
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      line-height: 2;
+      text-align: left;
+    }
+    h2 {
+      color: #6C3483;
+      margin-bottom: 10px;
+    }
+    label {
+      color: #6C3483;
+      font-weight: bold;
+    }
+    input {
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-left: 10px;
+    }
+    .result {
+      font-size: 18px;
+      color: #6C3483; 
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="converter-box">
+    <h2>Weight Converter</h2>
+    <div>
+      <label for="poundsInput">Pounds:</label>
+      <input type="number" id="poundsInput" placeholder="Enter number">
+    </div>
+    <div class="result" id="resultArea">Your weight in kg is:</div>
+  </div>
+
+  <script>
+    const input = document.getElementById('poundsInput');
+    const result = document.getElementById('resultArea');
+
+    input.addEventListener('input', () => {
+      const lbs = parseFloat(input.value);
+      if (!isNaN(lbs)) {
+        const kg = (lbs * 0.453592).toFixed(2);
+        result.textContent = `Your weight in kg is: ${kg}`;
+
+        setTimeout(() => {
+          input.value = '';
+          result.textContent = 'Your weight in kg is:';
+        }, 10000);
+      } else {
+        result.textContent = 'Your weight in kg is:';
+      }
+    });
+  </script>
+</body>
+</html>
