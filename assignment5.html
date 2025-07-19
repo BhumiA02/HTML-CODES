@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Step Progress Bar</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffdd0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .progress-container {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto 30px;
+      padding: 0 10px;
+    }
+
+    .progress-line {
+      position: absolute;
+      top: 50%;
+      height: 4px;
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+
+    .line-1 {
+      left: 10px;
+      width: 20%;
+      background-color: #228B22;
+    }
+
+    .line-2 {
+      left: 30%;
+      width: 15%;
+      background-color: #00C853;
+    }
+
+    .line-3 {
+      left: 47%;
+      width: 15%;
+      background-color: #00C853;
+    }
+
+    .line-4 {
+      left: 64%;
+      width: 22%;
+      background-color: #00C853;
+    }
+
+    .step-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      z-index: 1;
+    }
+
+    .step {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fg-border {
+      border: 2px solid #228B22;
+      color: #228B22;
+    }
+
+    .fresh-border {
+      border: 2px solid #00C853;
+      color: #00C853;
+    }
+
+    .label {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #7d3c98;
+    }
+
+    .label.forest {
+      color: #228B22;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #00C853;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #00C853;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="progress-container">
+      <div class="progress-line line-1"></div>
+      <div class="progress-line line-2"></div>
+      <div class="progress-line line-3"></div>
+      <div class="progress-line line-4"></div>
+
+      <div class="step-box">
+        <div class="step fg-border">✓</div>
+        <div class="label forest">Start</div>
+      </div>
+      <div class="step-box">
+        <div class="step fg-border">✓</div>
+        <div class="label forest">Step 1</div>
+      </div>
+      <div class="step-box">
+        <div class="step fresh-border">✗</div>
+        <div class="label"></div>
+      </div>
+      <div class="step-box">
+        <div class="step fresh-border">✗</div>
+        <div class="label"></div>
+      </div>
+      <div class="step-box">
+        <div class="step fresh-border">✗</div>
+        <div class="label"></div>
+      </div>
+    </div>
+
+    <div>
+      <button id="prevBtn" disabled>&larr;</button>
+      <button id="nextBtn">&rarr;</button>
+    </div>
+  </div>
+
+  <script>
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentStep = 0;
+
+    const updateButtons = () => {
+      prevBtn.disabled = currentStep === 0;
+      nextBtn.disabled = currentStep === 4;
+    };
+
+    prevBtn.addEventListener('click', () => {
+      if (currentStep > 0) {
+        currentStep--;
+        updateButtons();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentStep < 4) {
+        currentStep++;
+        updateButtons();
+      }
+    });
+
+    updateButtons();
+  </script>
+</body>
+</html>
