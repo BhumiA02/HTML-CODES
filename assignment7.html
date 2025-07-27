@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Image Feed</title>
+  <style>
+    body {
+      background-color: #add8e6; 
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    const gallery = document.getElementById('gallery');
+
+    function getRandomImageUrl() {
+      const width = 300;
+      const height = 300;
+      return `https://picsum.photos/${width}/${height}?random=${Math.random()}`;
+    }
+    for (let i = 0; i < 6; i++) {
+      const img = document.createElement('img');
+      img.src = getRandomImageUrl();
+      img.alt = 'Random Image';
+      gallery.appendChild(img);
+    }
+  </script>
+</body>
+</html>
